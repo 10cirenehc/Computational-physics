@@ -49,8 +49,10 @@ def population_growth_b(N0, a, b):
     for i in range(1,len(N)):
         N[i]=N[i-1]+(a*N[i-1]-b*(N[i-1])**2)*dt
        
+    from math import e
     plt.plot(t,N)
     plt.axhline(color='black');plt.axvline(color='black');plt.grid()
+    plt.plot(t, a / (b + (a - N[0] * b)/N[0] * e ** (-a * t)))
     plt.xlabel("time");plt.ylabel("Population")
     plt.title("Population growth no limit")
     
